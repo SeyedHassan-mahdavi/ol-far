@@ -50,7 +50,7 @@
 // };
 
 // export default LayerSwitcher;
-
+"use client"
 
 import { useEffect, useState } from 'react';
 import 'ol/ol.css';
@@ -60,57 +60,51 @@ import TileLayer from 'ol/layer/Tile';
 import OSM from 'ol/source/OSM';
 import TileWMS from 'ol/source/TileWMS';
 import { fromLonLat } from 'ol/proj';
+import { useMap } from './hooks/useMap';
 
 const LayerSwitcher = () => {
-    const [map, setMap] = useState(null);
+    // const [map, setMap] = useState(null);
     const [wmsLayers, setWmsLayers] = useState([]);
     const [layerSwitcherIsOpen, setLayerSwitcherIsOpen] = useState(false);
+    const map = useMap();
 
-    useEffect(() => {
-        const mapInstance = new Map({
-            target: null, // set to null to prevent auto creation of a div
-            view: new View({
-                center: fromLonLat([51, 32]),
-                zoom: 6
-            }),
-            layers: [
-                new TileLayer({
-                    source: new OSM()
-                })
-            ]
-        });
+    console.log('map', map)
+   
+    
 
-        setMap(mapInstance);
 
-        const wmsLayers = [
-            new TileLayer({
-                name: 'OSTAN',
-                source: new TileWMS({
-                    url: 'http://10.10.1.20:8080/geoserver/wms',
-                    params: { 'LAYERS': 'mmap:Ostan', 'TILED': true },
-                    serverType: 'geoserver',
-                }),
-            }),
-            new TileLayer({
-                name: 'JAHAN',
-                source: new TileWMS({
-                    url: 'http://10.10.1.20:8080/geoserver/wms',
-                    params: { 'LAYERS': 'ne:world', 'TILED': true },
-                    serverType: 'geoserver',
-                }),
-            }),
-        ];
+    // useEffect(() => {
+    
 
-        setWmsLayers(wmsLayers);
+    //     const wmsLayers = [
+    //         new TileLayer({
+    //             name: 'OSTAN',
+    //             source: new TileWMS({
+    //                 url: 'http://10.10.1.20:8080/geoserver/wms',
+    //                 params: { 'LAYERS': 'mmap:Ostan', 'TILED': true },
+    //                 serverType: 'geoserver',
+    //             }),
+    //         }),
+    //         new TileLayer({
+    //             name: 'JAHAN',
+    //             source: new TileWMS({
+    //                 url: 'http://10.10.1.20:8080/geoserver/wms',
+    //                 params: { 'LAYERS': 'ne:world', 'TILED': true },
+    //                 serverType: 'geoserver',
+    //             }),
+    //         }),
+    //     ];
 
-        wmsLayers.forEach(layer => {
-            mapInstance.addLayer(layer);
-        });
+    //     setWmsLayers(wmsLayers);
 
-        return () => {
-            mapInstance.setTarget(null);
-        };
-    }, []);
+    //     wmsLayers.forEach(layer => {
+    //         map.addLayer(layer);
+    //     });
+
+    //     return () => {
+    //         map.setTarget(null);
+    //     };
+    // }, []);
 
     const toggleLayerSwitcher = () => {
         setLayerSwitcherIsOpen(!layerSwitcherIsOpen);
