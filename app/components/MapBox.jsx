@@ -4,7 +4,6 @@ import 'ol/ol.css';
 import Map from 'ol/Map';
 import View from 'ol/View';
 import TileLayer from 'ol/layer/Tile';
-// import OSM from 'ol/source/OSM';
 import { fromLonLat } from 'ol/proj';
 
 import {
@@ -14,9 +13,7 @@ import {
     ScaleLine,
     defaults,
 } from 'ol/control';
-// import LayerSwitcher from './LayerSwitcher';
 import { OSM, TileWMS } from 'ol/source';
-import LayerSwitcher from './LayerSwitcher';
 
 
 export const MapBoxContext = createContext(null)
@@ -96,3 +93,4 @@ const MapBox = ({children}) => {
 };
 
 export default MapBox;
+
