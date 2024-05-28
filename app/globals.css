@@ -31,3 +31,8 @@ body {
     text-wrap: balance;
   } */
 }
+
+
+.custom-marker {
+  background-color: aquamarine;
+}

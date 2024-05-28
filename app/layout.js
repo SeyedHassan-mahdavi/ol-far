@@ -1,8 +1,6 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
-// import { MapContainer } from "./components/MapContainer";
-// import { MapContext } from "./components/MapContext";
-// import MapBox from "./components/MapBox";
+
 
 const inter = Inter({ subsets: ["latin"] });
 
