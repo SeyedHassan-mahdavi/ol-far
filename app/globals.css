@@ -31,8 +31,7 @@ body {
     text-wrap: balance;
   } */
 }
-
-
-.custom-marker {
-  background-color: aquamarine;
+.ol-zoomslider {
+  top: 16.5em !important;
 }
+
