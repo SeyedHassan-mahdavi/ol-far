@@ -171,7 +171,7 @@ const LayerSwitcher = () => {
                 new TileLayer({
                     name: 'JAHAN',
                     source: new TileWMS({
-                        url: 'http://10.10.1.20:8080/geoserver/wms',
+                        url: 'http://172.16.11.21:8080/geoserver/wms',
                         params: { 'LAYERS': 'ne:world', 'TILED': true },
                         serverType: 'geoserver',
                     }),
